@@ -1,0 +1,100 @@
+server:
+  port: 8061
+  servlet:
+    context-path: /auth
+    
+spring:
+  application:
+    name: youkong-sso
+  # mysql 的数据库配置
+  datasource:
+    url: jdbc:mysql://localhost:3306/youkong?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8
+    username: root
+    password: admin
+    driver-class-name: com.mysql.jdbc.Driver
+   # jpa 配置
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true   
+   # thymeleaf配置
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+    encoding: UTF-8
+    mode: HTML5
+    servlet:
+      content-type: text/html
+   
+  http:
+    encoding:
+      charset: utf-8
+      force: true
+      enabled: true
+   #redis配置
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: 
+    database: 0 
+    lettuce:
+      pool:
+        max-idle: 10
+        max-active: 10
+        min-idle: 5
+        max-wait: 10000
+ #注册中心配置   
+eureka:
+  client:
+    service-url:
+      #设置与Eureka Server交互的地址，查询服务和注册服务都需要依赖这个地址。默认是http://localhost:8761/eureka ；多个地址可使用 , 分隔。
+      defaultZone: http://localhost:8761/eureka/
+
+
+
+config:
+    oauth2:
+        # openssl genrsa -out jwt.pem 2048
+        # openssl rsa -in jwt.pem
+        privateKey: |
+           -----BEGIN RSA PRIVATE KEY-----
+           MIIEowIBAAKCAQEAxiCTJczIUtNAUg4knNyvTvdAY7oFSiEnLbYSB9ahZdtVueYw
+           6d/aAfdXVkkgECywGorFEL4UiDGBafit4LfSaIJpKbujPk4fN78hbAH0VbffXRAK
+           8UpVJHVyG2vw9b6o1CSRMCabmHM9GLJla9u7P5BVssO23zmECZ9/pTzpc7B5tBkb
+           p7PCQfJ8gg8tWvrvXI8XqrI8iO7DVTgrrPrZkWcRlMKvegLOpZHkMh7v9TtbUgCw
+           RN3X9DNgCJWw/zvQMd7Kf7vwpq/PokyJ44mptPxjLCCzYf8U+H8wJx48KEuZpLV1
+           cOE5eUZkX6brfn4aTE777FqM61ZBEd+9a5zgzQIDAQABAoIBACGnTtdQ3YYUFAzc
+           EiQC6FRFc059PoDE+N6u2okyT9/5TapyC0TunR1QYilp6mRU8uTPRYH+h4ZKwmy5
+           rO9KyhaucCaClMv0gSD6+jZabqJQxUQNgY5SzfuPZ35460kSxaKjQ3YmWK+gg3Q6
+           eTfE7x1w6t2emOV544+u5AOxQQZBWrjgRwNtAtFXW9s6ygQppxVGbHub0BLKHRPo
+           VfIyi5T1CBcVCFmKMDApbeSsjXwm+k//F/XcxTHhJOIKCg2YZ6Y4T2E3K8LYQJly
+           3EudkfK8J323RaJnsGSBp8wBuvBzE1UEyOyuh9qfbcjuCLQUGjkIshKhK6BWGZ/u
+           0ZDL0oECgYEA+pBgBJkNVqEKvV7QVK6HEzMSbMJhyJBhF7oV6+xQXZ6bzhVJBMpl
+           IkhEJ+7G0jysEWX9DMXDtUCCfoPEN9yI9RKUAtH0fqXEY4vpzwQb0Y5Ur8Pmjsrh
+           JuH6ariy96C4Hspdzo2fnUuzvpyUYt1ZtXUi58x/6JnYL+k/2pQq0TkCgYEAymz3
+           vF1j9ERogEBAqFADYI5ctSnNYPY0E/b/ET2qQmA+l2M1nAA67nL5tDY5zX30DMYs
+           2ZAaV1l9ZYn+i3MJ8Gcii3v0lqj6y/2nT+1GtsCvYGRM1MyH7UFt85ITKxdON/nk
+           Kdf0VCAowtJYrqncxmmj9VMEKwtzWfc3oVsMEDUCgYB8TCjFvyNFyUfpn2Jbz+SE
+           Gr7WIyuc8jqoKZD8Y1OOzcLe3eJGNR0sf4sIAESzQJPfYafBsU2f2auilT0+tPFg
+           GeJA7+SI+zTMaTkIkDI4p5HNS7JRPcWpo0q1rIBjpWARLjSQ5eK7hjVZppVZ4hLB
+           mKVDNkhxm/gJ9HzPstb2yQKBgAFQDZc6H9DQtMDIKeMtiagRpEZEfCF510Kd4m+R
+           L854Y0+GBC37zmYHdtkVVPChNXjzvAy5I4KXgPmsmGr9Fv5pHM88wYxMkjvKbFBX
+           YJME0t5UKC9lGCiQuQ7QTrGD2C0CwNkInnwBLWJ+DLctQNJEkxyfKjLBQ0E9Gi5A
+           seZVAoGBAN/Y0uQaNGT+JEiEmQJWIEDH2ZZSSVtlwBCV76KnAPyCbKIzM3S7SB2t
+           nLvnY13tvEepcrZMRxtptiDNtYB2P/0K7ieoR++74Fu2Emnb98Yw7qirt3uOhzlv
+           ebo2inUNwD0hYBZMPn0oBGjyQdNPo/HXH6SVYMwF/KWEd2dViTWq
+           -----END RSA PRIVATE KEY-----
+        # openssl rsa -in jwt.pem -pubout
+        publicKey: |
+            -----BEGIN PUBLIC KEY-----
+            MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxiCTJczIUtNAUg4knNyv
+            TvdAY7oFSiEnLbYSB9ahZdtVueYw6d/aAfdXVkkgECywGorFEL4UiDGBafit4LfS
+            aIJpKbujPk4fN78hbAH0VbffXRAK8UpVJHVyG2vw9b6o1CSRMCabmHM9GLJla9u7
+            P5BVssO23zmECZ9/pTzpc7B5tBkbp7PCQfJ8gg8tWvrvXI8XqrI8iO7DVTgrrPrZ
+            kWcRlMKvegLOpZHkMh7v9TtbUgCwRN3X9DNgCJWw/zvQMd7Kf7vwpq/PokyJ44mp
+            tPxjLCCzYf8U+H8wJx48KEuZpLV1cOE5eUZkX6brfn4aTE777FqM61ZBEd+9a5zg
+            zQIDAQAB
+            -----END PUBLIC KEY-----
+
+     

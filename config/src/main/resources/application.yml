@@ -1,0 +1,32 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: youkong-config
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/Rwuyao/cloudconfig    # 配置git仓库的地址
+          search-paths:                                 # git仓库地址下的相对地址，可以配置多个，用,分割。
+          username: 282747051@qq.com                                            # git仓库的账号
+          password: s1~li9htc    
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+    virtual-host: /
+    
+management:
+  #refresh接入点显式暴露出来
+  endpoints:
+    web:
+      exposure:
+        include: bus-refresh
+    
+eureka:
+  client:
+    service-url:
+      #设置与Eureka Server交互的地址，查询服务和注册服务都需要依赖这个地址。默认是http://localhost:8761/eureka ；多个地址可使用 , 分隔。
+      defaultZone: http://localhost:8761/eureka/                   

@@ -1,0 +1,30 @@
+<!DOCTYPE>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+   <h2>自定义登录页面</h2>
+    
+    <form  th:action="@{/login}"  th:method="post" >
+        <table>
+            <tr>
+                <td>用户名：</td>
+                <td><input type="text"  name="username"></td>
+            </tr>
+            <tr>
+                <td>密码：</td>
+                <td><input type="password" name="password"></td>
+            </tr>
+            <tr>
+                <td colspan="2"><button type="submit">登录</button></td>
+            </tr>
+            <tr>
+            <td colspan="2"><input type="checkbox" name="remember-me" value="true">记住我</td>
+        </tr>
+        </table>
+    </form>
+</body>
+</html>

@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Built-By: xiong
+Build-Jdk: 13.0.2
+Implementation-Title: user-manage
+Implementation-Version: 0.0.1-SNAPSHOT
+Implementation-Vendor-Id: cn.greate
+Implementation-URL: http://maven.apache.org
+Created-By: Maven Integration for Eclipse
+

@@ -1,0 +1,57 @@
+server:
+  port: 8070  
+
+logging:
+  level:
+    root: DEBUG
+
+spring:
+  application:
+    name: getway
+  #zipkin:
+     # baseUrl: http://localhost:9003
+  #sleuth:
+    #监控开关
+    #enabled: true
+  # thymeleaf配置
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+    encoding: UTF-8
+    mode: HTML5
+    servlet:
+      content-type: text/html
+  http:
+    encoding:
+      charset: utf-8
+      force: true
+      enabled: true    
+eureka:
+  client:
+    service-url:
+      #设置与Eureka Server交互的地址，查询服务和注册服务都需要依赖这个地址。默认是http://localhost:8761/eureka ；多个地址可使用 , 分隔。
+      defaultZone: http://localhost:8761/eureka/
+      
+zuul:
+  # 添加代理头
+  add-proxy-headers: true
+  # 敏感头信息（重要）
+  sensitive-headers: #Cookie,Set-Cookie 
+
+    
+security:
+  oauth2:
+    sso:
+      loginPath: /index    
+    client:
+      clientId: youkong
+      clientSecret: youkong
+      userAuthorizationUri: http://localhost:8061/auth/oauth/authorize
+      access-token-uri: http://localhost:8061/auth/oauth/token
+  
+    resource:
+       user-info-uri: http://localhost:8061/auth/users/current
+       prefer-token-info: false
+       #jwt:
+        #key-uri: http://localhost:8061/auth/oauth/token_key

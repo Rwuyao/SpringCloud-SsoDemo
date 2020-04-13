@@ -1,0 +1,63 @@
+server:
+  port: 8061
+
+spring:
+  application:
+    name: youkong-sso
+  # mysql 的数据库配置
+  datasource:
+    url: jdbc:mysql://localhost:3306/youkong?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8
+    username: root
+    password: admin
+    driver-class-name: com.mysql.jdbc.Driver
+   # jpa 配置
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true   
+   # thymeleaf配置
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+    encoding: UTF-8
+    mode: HTML5
+    servlet:
+      content-type: text/html
+   
+  http:
+    encoding:
+      charset: utf-8
+      force: true
+      enabled: true
+   #redis配置
+  redis:
+    host: 127.0.0.1
+    port: 6379
+    password: 
+    database: 0 
+    lettuce:
+      pool:
+        max-idle: 10
+        max-active: 10
+        min-idle: 5
+        max-wait: 10000
+ #注册中心配置   
+eureka:
+  client:
+    service-url:
+      #设置与Eureka Server交互的地址，查询服务和注册服务都需要依赖这个地址。默认是http://localhost:8761/eureka ；多个地址可使用 , 分隔。
+      defaultZone: http://localhost:8761/eureka/
+
+
+
+#自定义参数，可以迁移走
+token:
+  #token失效时间（不是refreshToken）(这是自定义的)(秒)
+  expirationSeconds: 300
+ 
+  #默认7天登录有效(根据业务更改)
+  validTime: 7
+
+
+     

@@ -1,0 +1,46 @@
+server:
+  port: 8092
+
+logging:
+  level:
+    root: DEBUG
+
+spring:
+  application:
+    name: user-manage
+  zipkin:
+    baseUrl: http://localhost:9003    
+  datasource:
+    url: jdbc:mysql://localhost:3306/youkong?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8
+    username: root
+    password: admin
+    driver-class-name: com.mysql.jdbc.Driver
+   # jpa 配置
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true      
+  http:
+    encoding:
+      charset: utf-8
+      force: true
+      enabled: true 
+      
+feign:
+  hystrix:
+    enabled: true
+      
+eureka:
+  client:
+    service-url:
+      #设置与Eureka Server交互的地址，查询服务和注册服务都需要依赖这个地址。默认是http://localhost:8761/eureka ；多个地址可使用 , 分隔。
+      defaultZone: http://localhost:8761/eureka/
+      
+security:
+  oauth2: 
+    resource:
+       user-info-uri: http://localhost:8061/auth/users/current
+       #jwt:
+        #key-uri: http://localhost:8061/auth/oauth/token_key     
+
+      

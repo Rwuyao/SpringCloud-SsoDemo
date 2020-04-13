@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>cn.greate</groupId>
+  <artifactId>youkong</artifactId>
+  <version>0.0.1-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <name>youkong</name>
+  <url>http://maven.apache.org</url>
+
+ <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.1.3.RELEASE</version>
+        <relativePath/> <!-- lookup parent from repository -->
+    </parent>
+
+    <!--配置参数-->
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
+        <spring-cloud.version>Greenwich.RELEASE</spring-cloud.version>
+    </properties>
+
+
+
+
+    <!--Spring Cloud 版本序列配置-->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+    <modules>
+    <module>eureka-server</module>
+    <module>user-manage</module>
+    <module>youkong-ui</module>
+    <module>getway</module>
+    <module>config</module>
+    <module>tubin</module>
+    <module>zipkin</module>
+    <module>youkong-usermanage</module>
+    <module>youkong-sso</module>
+    <module>youkong-oauth2-jwt</module>
+    <module>youkong-oauth2-server</module>
+    <module>youkong-oauth2</module>
+    <module>youkong-oauth2-redis</module>
+  </modules>
+    
+<build>
+  <plugins>
+  	<plugin>
+  		<groupId>org.springframework.boot</groupId>
+ 		<artifactId>spring-boot-maven-plugin</artifactId>
+  	</plugin>
+  </plugins>
+ </build>
+
+</project>
